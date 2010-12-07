@@ -31,7 +31,7 @@ Description
 Author
     Hrvoje Jasak, Wikki Ltd.  All rights reserved
 
-\*----------------------------------------------------------------------------*/
+\*---------------------------------------------------------------------------*/
 
 #include "aamgPolicy.H"
 #include "amgMatrix.H"
@@ -215,7 +215,7 @@ void Foam::aamgPolicy::calcChild()
 
                     child_[nextEqn] = child_[curEqn];
                     sizeOfGroups[child_[curEqn]];
-                    
+
                     curEqn = nextEqn;
                 }
                 else
