@@ -31,7 +31,7 @@ Description
 Author
     Hrvoje Jasak, Wikki Ltd.  All rights reserved
 
-\*----------------------------------------------------------------------------*/
+\*---------------------------------------------------------------------------*/
 
 #include "aamgPolicy.H"
 #include "amgMatrix.H"
@@ -215,7 +215,7 @@ void Foam::aamgPolicy::calcChild()
 
                     child_[nextEqn] = child_[curEqn];
                     sizeOfGroups[child_[curEqn]];
-                    
+
                     curEqn = nextEqn;
                 }
                 else
@@ -355,8 +355,6 @@ Foam::autoPtr<Foam::amgMatrix> Foam::aamgPolicy::restrictMatrix
     // Setup initial packed storage for neighbours and coefficients
     labelList blockNbrsData(maxNnbrs*nCoarseEqns_);
 
-    scalarList blockCoeffsData(maxNnbrs*nCoarseEqns_, 0.0);
-
     // Create face-restriction addressing
     labelList coeffRestrictAddr(nFineCoeffs);
 
@@ -386,7 +384,7 @@ Foam::autoPtr<Foam::amgMatrix> Foam::aamgPolicy::restrictMatrix
             label cOwn = rmUpperAddr;
             label cNei = rmLowerAddr;
 
-            // get coarse owner and neighbour
+            // Get coarse owner and neighbour
             if (rmUpperAddr > rmLowerAddr)
             {
                 cOwn = rmLowerAddr;
@@ -397,7 +395,7 @@ Foam::autoPtr<Foam::amgMatrix> Foam::aamgPolicy::restrictMatrix
             bool nbrFound = false;
             label& ccnCoeffs = blockNnbrs[cOwn];
 
-            for (int i=0; i<ccnCoeffs; i++)
+            for (int i = 0; i < ccnCoeffs; i++)
             {
                 if (initCoarseNeighb[blockNbrsData[maxNnbrs*cOwn + i]] == cNei)
                 {
@@ -626,7 +624,8 @@ Foam::autoPtr<Foam::amgMatrix> Foam::aamgPolicy::restrictMatrix
     lduMatrix* coarseMatrixPtr = new lduMatrix(*coarseAddrPtr);
     lduMatrix& coarseMatrix = *coarseMatrixPtr;
 
-    // Coarse matrix diagonal initialised by restricting the finer mesh diagonal
+    // Coarse matrix diagonal initialised by restricting the
+    // finer mesh diagonal
     scalarField& coarseDiag = coarseMatrix.diag();
     restrictResidual(matrix_.diag(), coarseDiag);
 
@@ -659,7 +658,7 @@ Foam::autoPtr<Foam::amgMatrix> Foam::aamgPolicy::restrictMatrix
             }
         }
     }
-    else // ... Otherwise it is symmetric so agglomerate just the upper 
+    else // ... Otherwise it is symmetric so agglomerate just the upper
     {
         // Get off-diagonal matrix coefficients
         const scalarField& fineUpper = matrix_.upper();
