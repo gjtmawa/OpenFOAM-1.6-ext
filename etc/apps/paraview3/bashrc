@@ -47,8 +47,8 @@ do
 done
 
 # set MAJOR and VERSION variables if not already set
-[ -z "$ParaView_MAJOR" ] && export ParaView_MAJOR=paraview-3.8
-[ -z "$ParaView_VERSION" ] && export ParaView_VERSION=3.8.1
+[ -z "$ParaView_MAJOR" ] && export ParaView_MAJOR=paraview-3.10
+[ -z "$ParaView_VERSION" ] && export ParaView_VERSION=3.10.0
 
 export ParaView_INST_DIR=$WM_THIRD_PARTY_DIR/ParaView-$ParaView_VERSION
 export ParaView_DIR=$ParaView_INST_DIR/platforms/$WM_ARCH$WM_COMPILER
