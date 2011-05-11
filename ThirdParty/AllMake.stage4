@@ -65,7 +65,6 @@ else
     echo ""
 fi
 
-
 # Paraview
 if [ -z "$PARAVIEW_SYSTEM" ] 
 then
@@ -76,8 +75,8 @@ then
     then
 
         ( rpm_make -p ParaView-3.10.0 -s ParaView-3.10.0.spec -u http://www.paraview.org/files/v3.10/ParaView-3.10.0.tar.gz \
+            -a --define='_qmakePath $QT_BIN_DIR/qmake'     
 
-            -D '_qmakePath     $QT_BIN_DIR/qmake'     
         )
     else
         echo "WARNING: "
