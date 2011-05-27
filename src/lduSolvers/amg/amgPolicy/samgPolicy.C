@@ -31,7 +31,7 @@ Description
 Author
     Hrvoje Jasak, Wikki Ltd.  All rights reserved
 
-\*----------------------------------------------------------------------------*/
+\*---------------------------------------------------------------------------*/
 
 #include "samgPolicy.H"
 #include "crMatrix.H"
@@ -283,7 +283,7 @@ void Foam::samgPolicy::calcRP()
     const labelField mark(markEquations(S));
 
     // Assemble prolongation addressing
-    const labelList& sRow = S.crAddr().row(); 
+    const labelList& sRow = S.crAddr().row();
     const labelList& sCol = S.crAddr().col();
     const scalarField& sCoeffs = S.coeffs();
 
@@ -312,7 +312,7 @@ void Foam::samgPolicy::calcRP()
     // contributions will be added.  It remains to do the upper triangle
     // and complete the work for the row.
     // This increases the storage for num and den to complete fields
-    
+
     // Memory management
     {
         labelList pRow(nRows + 1);
