@@ -170,6 +170,9 @@ Patch1:                 vtk-gcc60.patch
     #temporary bugfix for faulty VTK build system
     addCMakeVariable  PARAVIEW_INSTALL_THIRD_PARTY_LIBRARIES:BOOL=OFF
 
+    # add ffmpeg library
+    addCMakeVariable VTK_USE_FFMPEG_ENCODER=ON
+
     echo "CMAKE_VARIABLES: $CMAKE_VARIABLES"
 
     mkdir -p ./buildObj
