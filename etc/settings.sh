@@ -47,10 +47,10 @@ _foamAddLib()
     while [ $# -ge 1 ]
     do
         export LD_LIBRARY_PATH=$1:$LD_LIBRARY_PATH
-	if [ "$WM_ARCH_BASE" == "darwin" ]	    
-	then
-	    export DYLD_LIBRARY_PATH=$1:$DYLD_LIBRARY_PATH
-	fi
+        if [ "$WM_ARCH_BASE" = "darwin" ]
+        then
+            export DYLD_LIBRARY_PATH=$1:$DYLD_LIBRARY_PATH
+        fi
         shift
     done
 }
@@ -70,7 +70,7 @@ _foamSource()
 }
 
 # location of the jobControl directory
-export FOAM_JOB_DIR=$WM_PROJECT_INST_DIR/jobControl
+export FOAM_JOB_DIR=$HOME/$WM_PROJECT/jobControl
 
 # wmake configuration
 export WM_DIR=$WM_PROJECT_DIR/wmake
@@ -273,8 +273,8 @@ SYSTEMOPENMPI)
     #          system openmpi installation.
 
     # Set compilation flags here instead of in wmake/rules/../mplibSYSTEMOPENMPI
-    export PINC=$OPENMPI_COMPILE_FLAGS
-    export PLIBS=$OPENMPI_LINK_FLAGS
+    export PINC="${OPENMPI_COMPILE_FLAGS}"
+    export PLIBS="${OPENMPI_LINK_FLAGS}"
 
     # No longer needed, but we keep this as a reference, just in case...
     #libDir=`echo "$PLIBS" | sed -e 's/.*-L\([^ ]*\).*/\1/'`
